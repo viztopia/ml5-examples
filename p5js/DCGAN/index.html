@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DCGAN example with p5.js. Using a pre-trained model on human faces.</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.2.3/dist/ml5.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="canvas-wrapper" width="64" height="64">
+        <canvas id="the_canvas" width="64" height="64">
+            Your browser does not support the canvas element.
+        </canvas>
+    </div>
+    <h1>DCGAN example with p5.js. Using a pre-trained model on human faces.</h1>
+    <p id='status'>Loading Model...</p>
+
+    <button id="generate-button"> Generate
+    </button>
+
+    <!--<div>-->
+    <!--<h5> Info </h5>-->
+    <!--<p id="logging">-->
+    <!--</p>-->
+    <!--</div>-->
+
+    <script src="sketch.js"></script>
+</body>
+
+</html>
