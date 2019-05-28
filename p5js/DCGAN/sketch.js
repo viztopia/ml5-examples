@@ -1,35 +1,45 @@
-// --------------------------------------------------------------------------------------------------------
-// Configuration
-// --------------------------------------------------------------------------------------------------------
+// Copyright (c) 2018 ml5
+//
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+/* ===
+ml5 Example
+DCGAN example
+=== */
 
 let dcgan;
-let canvas = document.getElementById('the_canvas');
+let outputCanvas;
 let button;
 
 function setup() {
-    noLoop();
-    noCanvas();
+  createCanvas(400, 400);
+  // Load the model
+  // There can be multiple pre-trained models (e.g. cats, flowers, etc.), just like SketchRNN
+  dcgan = ml5.DCGAN('face', modelReady);
 
-    dcgan = new ml5.DCGAN("face", modelReady);
-
-    //button to generate an image
-    button = select('#generate-button');
-    button.mousePressed(generate);
+  // Button to generate an image
+  button = createButton('generate');
+  button.mousePressed(generate);
+  // Hiding button until model is ready
+  button.hide();
 }
 
 function generate() {
-    // dcgan.generate(canvas, (err, result) =>{
-    dcgan.generate((err, result) => {
-        // console.log(result);
+  // Generate function receives a callback for when image is ready
+  dcgan.generate(displayImage);
+}
 
-        let img = document.createElement("IMG");
-        img.src = URL.createObjectURL(result.blob);
-        img.style = "width:256px; height:256px";
-        // console.log(img);
-        document.body.appendChild(img);
-    });
+function displayImage(err, result) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  image(result.image, 0, 0, 400, 400);
 }
 
 function modelReady() {
-    select('#status').html('Model Loaded');
+  console.log('model is ready');
+  button.show();
+  generate();
 }
