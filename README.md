@@ -1,4 +1,5 @@
 # ml5 Examples
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 ## Description
 
@@ -6,9 +7,9 @@ This repository contains a collection of  examples using [ml5.js](https://github
 
 Examples are organized into folders according to their integration with other JavaScript libraries.
 
-For example, the `/p5js` folder holds examples of using [ml5.js](https:/ml5js.github.io) with [p5.js](https://p5js.org/). All examples are self-contained and can be run independently. Libraries are loaded through a Content Delivery Network (CDN) and certain examples (indicated in code comments) download a machine learning model from a "cloud" url.
+For example, the `/p5js` folder holds examples of using [ml5.js](https://github.com/ml5js/ml5-library) with [p5.js](https://p5js.org/). All examples are self-contained and can be run independently. Libraries are loaded through a Content Delivery Network (CDN) and certain examples (indicated in code comments) download a machine learning model from a "cloud" url. This means that ml5 currently relies on an internet connection in order to retrieve pre-trained models (unless they are served locally). 
 
-If you need to run the examples offline you can [download the p5.js libraries here](https://p5js.org/download/) and [ml5 library here](https://github.com/ml5js/ml5-library/releases).
+Instead of using the CDN links to p5 and ml5, you can [download the p5.js libraries here](https://github.com/processing/p5.js/releases) and [ml5 library here](https://github.com/ml5js/ml5-library/releases).
 
 ## Usage
 
@@ -80,9 +81,7 @@ ml5.js does not require p5.js, however as ml5.js and p5.js have been designed to
 * [Pix2Pix_promise](https://ml5js.github.io/ml5-examples/p5js/Pix2Pix/Pix2Pix_promise)
 * [YOLO_webcam](https://ml5js.github.io/ml5-examples/p5js/YOLO/YOLO_webcam)
 * [YOLO_single_image](https://ml5js.github.io/ml5-examples/p5js/YOLO/YOLO_single_image)
-* [images](https://ml5js.github.io/ml5-examples/p5js/YOLO/YOLO_single_image/images)
 * [PoseNet_image_single](https://ml5js.github.io/ml5-examples/p5js/PoseNet/PoseNet_image_single)
-* [data](https://ml5js.github.io/ml5-examples/p5js/PoseNet/PoseNet_image_single/data)
 * [PoseNet_webcam](https://ml5js.github.io/ml5-examples/p5js/PoseNet/PoseNet_webcam)
 * [PoseNet_part_selection](https://ml5js.github.io/ml5-examples/p5js/PoseNet/PoseNet_part_selection)
 
@@ -98,3 +97,15 @@ NOTE: not all of the ml5.js examples are currently working on the p5.js web edit
 ## Contributing
 
 See CONTRIBUTING.MD
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="https://wakatime.com/@barakplasma"><img src="https://avatars0.githubusercontent.com/u/62937?v=4" width="100px;" alt="Michael Salaverry"/><br /><sub><b>Michael Salaverry</b></sub></a><br /><a href="#content-barakplasma" title="Content">🖋</a> <a href="https://github.com/ml5js/ml5-examples/issues?q=author%3Abarakplasma" title="Bug reports">🐛</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
