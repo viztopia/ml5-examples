@@ -8,6 +8,10 @@ const options = {
     segmentationThreshold: 0.3, // 0 - 1, defaults to 0.5 
 }
 
+function preload(){
+    bodypix = ml5.bodyPix(options)
+}
+
 function setup() {
     createCanvas(320, 240);
 
@@ -15,18 +19,15 @@ function setup() {
     video = createCapture(VIDEO);
     video.size(width, height);
     // video.hide(); // Hide the video element, and just show the canvas
-    bodypix = ml5.bodyPix(video, modelReady)
 
     // Create a palette - uncomment to test below
-    createHSBPalette();
+    // createHSBPalette();
     // createRGBPalette();
-    // createSimplePalette();
+    createSimplePalette();
+
+    bodypix.segmentWithParts(video, gotResults, options)
 }
 
-function modelReady() {
-    console.log('ready!')
-    bodypix.segmentWithParts(gotResults, options)
-}
 
 function gotResults(err, result) {
     if (err) {
@@ -35,16 +36,17 @@ function gotResults(err, result) {
     }
     segmentation = result;
 
-    image(video, 0, 0, width, height)
-    image(segmentation.image, 0, 0, width, height)
+    background(255, 0, 0);
+    // image(video, 0, 0, width, height)
+    image(segmentation.partMask, 0, 0, width, height)
 
-    bodypix.segmentWithParts(gotResults, options)
+    bodypix.segmentWithParts(video, gotResults, options)
 
 }
 
 function createSimplePalette() {
     options.palette = bodypix.config.palette;
-    Object.keys(bodypix.palette).forEach(part => {
+    Object.keys(options.palette).forEach(part => {
         const r = floor(random(255));
         const g = floor(random(255));
         const b = floor(random(255));
@@ -64,7 +66,7 @@ function createHSBPalette() {
     });
 }
 
-function createHSBPalette() {
+function createRGBPalette() {
     colorMode(RGB);
     options.palette = bodypix.config.palette;
     Object.keys(options.palette).forEach(part => {

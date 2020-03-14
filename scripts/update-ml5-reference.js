@@ -4,7 +4,6 @@ const recursive = require("recursive-readdir");
 const { parse } = require('node-html-parser');
 
 const baseurl = path.resolve(__dirname, "..");
-const ml5version = process.argv[2] || '0.2.3'
 
 let ml5src;
 if(process.env.NODE_ENV && ['development', 'dev', 'DEVELOPMENT'].includes(process.env.NODE_ENV) === true ){
@@ -12,12 +11,13 @@ if(process.env.NODE_ENV && ['development', 'dev', 'DEVELOPMENT'].includes(proces
     ml5src = `src="http://localhost:8080/ml5.js" type="text/javascript"`
 } else {
     console.log(`setting src for production`)
-    ml5src = `src="https://unpkg.com/ml5@${ml5version}/dist/ml5.min.js" type="text/javascript"`
+    ml5src = `src="https://unpkg.com/ml5@latest/dist/ml5.min.js" type="text/javascript"`
 }
 
 // run the functions
 make("/javascript", ml5src);
 make("/p5js", ml5src);
+make("/d3", ml5src);
 
 /**
  * Take the relative path to the examples directory and 
